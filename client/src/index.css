@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Oxanium:wght@400;500;600;700;800&family=Rajdhani:wght@400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  cursor: url("https://cur.cursors-4u.net/games/gam-4/gam372.cur"), auto !important;
+  /* Futuristic Gaming Palette - Dark Mode Default */
+  --font-display: 'Oxanium', display;
+  --font-body: 'Rajdhani', sans-serif;
+  --font-mono: 'Space Mono', monospace;
+
+  /* Base Backgrounds */
+  --background: 222 47% 6%; /* Deep dark navy/black */
+  --foreground: 210 40% 98%;
+
+  /* Neon Blue Primary */
+  --primary: 190 100% 50%; /* #00f0ff - Cyan Neon */
+  --primary-foreground: 222 47% 6%; /* Dark text on neon */
+
+  /* Secondary / Accents */
+  --secondary: 217 91% 60%; /* #3b82f6 - Deep electric blue */
+  --secondary-foreground: 210 40% 98%;
+  
+  --muted: 217 33% 17%;
+  --muted-foreground: 215 20% 65%;
+  
+  --accent: 262 80% 50%; /* Purple accent */
+  --accent-foreground: 210 40% 98%;
+  
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 100%;
+
+  --border: 217 33% 20%;
+  --input: 217 33% 20%;
+  --ring: 190 100% 50%;
+
+  --card: 222 47% 8%;
+  --card-foreground: 210 40% 98%;
+
+  --radius: 0px; /* Sharp corners for sci-fi feel */
+}
+
+@layer base {
+  body {
+    @apply bg-background text-foreground antialiased selection:bg-primary/30 selection:text-primary;
+    font-family: var(--font-body);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    @apply font-bold tracking-tight uppercase;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: hsl(var(--background));
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--border));
+}
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--primary));
+}
+
+/* Neon Text Glow Effect Utility */
+.text-glow {
+  text-shadow: 0 0 10px hsla(var(--primary), 0.5), 0 0 20px hsla(var(--primary), 0.3);
+}
+
+.border-glow {
+  box-shadow: 0 0 10px hsla(var(--primary), 0.2);
+}
+
+/* Glitch Effect Keyframes (optional polish) */
+@keyframes glitch {
+  0% { transform: translate(0); }
+  20% { transform: translate(-2px, 2px); }
+  40% { transform: translate(-2px, -2px); }
+  60% { transform: translate(2px, 2px); }
+  80% { transform: translate(2px, -2px); }
+  100% { transform: translate(0); }
+}
+
+.hover-glitch:hover {
+  animation: glitch 0.3s cubic-bezier(.25, .46, .45, .94) both infinite;
+}
